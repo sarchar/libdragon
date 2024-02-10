@@ -356,6 +356,11 @@ else
     popd
 fi
 
+# regdef.h is from newlib, just use mips64-libdragon-elf for now
+mkdir -p "$CROSS_PREFIX/$N64_TARGET_RSP/include/machine"
+cp -av "$CROSS_PREFIX/$N64_TARGET/include/regdef.h" "$CROSS_PREFIX/$N64_TARGET_RSP/include"
+cp -av "$CROSS_PREFIX/$N64_TARGET/include/machine/regdef.h" "$CROSS_PREFIX/$N64_TARGET_RSP/include/machine"
+
 if [ "$MAKE_V" != "" ]; then
     pushd "make-$MAKE_V"
     ./configure \

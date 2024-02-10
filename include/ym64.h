@@ -105,8 +105,8 @@ int ym64player_num_channels(ym64player_t *player);
 /**
  * @brief Start playback of a YM file.
  * 
- * @param[in]	player 		YM64 player
- * @param[in] 	first_ch	First mixer channel to use for playback
+ * @param[in]   player 		YM64 player
+ * @param[in]   first_ch	First mixer channel to use for playback
  */
 void ym64player_play(ym64player_t *player, int first_ch);
 
@@ -117,7 +117,7 @@ void ym64player_play(ym64player_t *player, int first_ch);
  * YM position) or seconds. You can pass NULL to information that you are not
  * interested in receiving.
  * 
- * @param[in]	player 		YM64 player
+ * @param[in]   player 		YM64 player
  * @param[out] 	len 		Total duration in ticks
  * @param[out] 	secs 		Total duration in seconds
  */
@@ -130,7 +130,7 @@ void ym64player_duration(ym64player_t *player, int *len, float *secs);
  * YM position), and also expressed as number of seconds. You can pass NULL
  * to information that you are not interested in receiving.
  * 
- * @param[in]	player 		YM64 player
+ * @param[in]   player 		YM64 player
  * @param[out] 	pos 		Current position in ticks
  * @param[out] 	secs 		Current position in seconds
  */
@@ -143,7 +143,7 @@ void ym64player_tell(ym64player_t *player, int *pos, float *secs);
  * YM position). Notice that it's not possible to seek in a YM64 file that has
  * been compressed. audioconv64 compresses YM files by default.
  * 
- * @param[in]	player 		YM64 player
+ * @param[in]   player 		YM64 player
  * @param[out] 	pos 		Absolute position in ticks
  * @return                  True if it was possible to seek, false if 
  *                          the file is compressed.

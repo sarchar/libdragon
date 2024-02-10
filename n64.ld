@@ -8,7 +8,7 @@
  * ========================================================================
  */
 
-OUTPUT_FORMAT ("elf32-bigmips", "elf32-bigmips", "elf32-littlemips")
+OUTPUT_FORMAT ("elf32-ntradbigmips", "elf32-bigmips", "elf32-littlemips")
 OUTPUT_ARCH (mips)
 EXTERN (_start)
 ENTRY (_start)
@@ -42,11 +42,10 @@ SECTIONS {
         __text_end  = .;
     } :main
 
-   .eh_frame_hdr : { *(.eh_frame_hdr) }
-   .eh_frame : { 
-		__EH_FRAME_BEGIN__ = .; /* Define symbol for accessing eh_frame section */
-		KEEP (*(.eh_frame)) 
-	}
+    /DISCARD/ : {
+        *(.eh_frame)
+    }
+
    .gcc_except_table : { *(.gcc_except_table*) } 
    .jcr : { KEEP (*(.jcr)) } 
 

@@ -122,9 +122,9 @@ jobs:
           echo Generating debian package
           # TODO: a warning is generated when adding files to `\etc`. The current workaround is: --deb-no-default-config-files
           fpm \
-            -t deb \
+            -t zip \
             -s dir \
-            -p $Package_Name-$Package_Architecture.deb \
+            -p $Package_Name-$Package_Architecture.zip \
             --name $Package_Name \
             --license $Package_License \
             --version $Package_Version.$Package_Revision \
@@ -132,24 +132,22 @@ jobs:
             --description "$Package_Description" \
             --url "$Package_Url" \
             --maintainer "$Package_Maintainer" \
-            --deb-no-default-config-files \
-            $Package_Source_Directory=$Package_Installation_Directory/ \
-            $Package_Name-env.sh=/etc/profile.d/$Package_Name-env.sh
+            $Package_Source_Directory=/ 
 
-          echo Generating rpm package
-          fpm \
-            -t rpm \
-            -s dir \
-            -p $Package_Name-$Package_Architecture.rpm \
-            --name $Package_Name \
-            --license $Package_License \
-            --version $Package_Version.$Package_Revision \
-            --architecture $Package_Architecture \
-            --description "$Package_Description" \
-            --url "$Package_Url" \
-            --maintainer "$Package_Maintainer" \
-            $Package_Source_Directory=$Package_Installation_Directory/ \
-            $Package_Name-env.sh=/etc/profile.d/$Package_Name-env.sh
+          #echo Generating rpm package
+          #fpm \
+          #  -t rpm \
+          #  -s dir \
+          #  -p $Package_Name-$Package_Architecture.rpm \
+          #  --name $Package_Name \
+          #  --license $Package_License \
+          #  --version $Package_Version.$Package_Revision \
+          #  --architecture $Package_Architecture \
+          #  --description "$Package_Description" \
+          #  --url "$Package_Url" \
+          #  --maintainer "$Package_Maintainer" \
+          #  $Package_Source_Directory=$Package_Installation_Directory/ \
+          #  $Package_Name-env.sh=/etc/profile.d/$Package_Name-env.sh
         continue-on-error: true
         env:
           Package_Source_Directory: ${{ runner.temp }}/${{ env.Build_Directory }}/
@@ -178,8 +176,7 @@ jobs:
         with:
           name: gcc-toolchain-mips64-${{ matrix.target-platform }}
           path: |
-            ./**/*.deb
-            ./**/*.rpm
+            ./**/*.zip
         continue-on-error: true
 
   Publish-Toolchain:
@@ -238,6 +235,12 @@ jobs:
           cd ${{ steps.download-windows-artifact.outputs.download-path }}
           zip -r -q ${{ runner.temp }}/gcc-toolchain-mips64-win64.zip *
 
+      # Compress and move the linux folder ready for upload.
+      - name: Compress and move linux artifacts
+        run: |
+          cd ${{ steps.download-linux-artifact.outputs.download-path }}
+          zip -r -q ${{ runner.temp }}/gcc-toolchain-mips64-linux.zip *
+
       - name: Generate Release
         if: github.ref == 'refs/heads/trunk'
         uses: softprops/action-gh-release@v1
@@ -249,6 +252,4 @@ jobs:
           name: 'V${{ needs.build-toolchain.outputs.gcc-version }}-${{ github.run_id }}'
           tag_name: "toolchain-continuous-prerelease"
           files: |
-            ${{ runner.temp }}/**/*.deb
-            ${{ runner.temp }}/**/*.rpm
             ${{ runner.temp }}/*.zip

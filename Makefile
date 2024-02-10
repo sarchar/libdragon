@@ -78,64 +78,64 @@ $(INSTALLDIR)/include/n64.mk: n64.mk
 	install -cv -m 0644 n64.mk $(INSTALLDIR)/include/n64.mk
 
 install: install-mk libdragon
-	mkdir -p $(INSTALLDIR)/mips64-elf/lib
-	install -Cv -m 0644 libdragon.a $(INSTALLDIR)/mips64-elf/lib/libdragon.a
-	install -Cv -m 0644 n64.ld $(INSTALLDIR)/mips64-elf/lib/n64.ld
-	install -Cv -m 0644 rsp.ld $(INSTALLDIR)/mips64-elf/lib/rsp.ld
-	install -Cv -m 0644 header $(INSTALLDIR)/mips64-elf/lib/header
-	install -Cv -m 0644 libdragonsys.a $(INSTALLDIR)/mips64-elf/lib/libdragonsys.a
-	install -Cv -m 0644 include/n64types.h $(INSTALLDIR)/mips64-elf/include/n64types.h
-	install -Cv -m 0644 include/pputils.h $(INSTALLDIR)/mips64-elf/include/pputils.h
-	install -Cv -m 0644 include/n64sys.h $(INSTALLDIR)/mips64-elf/include/n64sys.h
-	install -Cv -m 0644 include/backtrace.h $(INSTALLDIR)/mips64-elf/include/backtrace.h
-	install -Cv -m 0644 include/cop0.h $(INSTALLDIR)/mips64-elf/include/cop0.h
-	install -Cv -m 0644 include/cop1.h $(INSTALLDIR)/mips64-elf/include/cop1.h
-	install -Cv -m 0644 include/interrupt.h $(INSTALLDIR)/mips64-elf/include/interrupt.h
-	install -Cv -m 0644 include/dma.h $(INSTALLDIR)/mips64-elf/include/dma.h
-	install -Cv -m 0644 include/dragonfs.h $(INSTALLDIR)/mips64-elf/include/dragonfs.h
-	install -Cv -m 0644 include/asset.h $(INSTALLDIR)/mips64-elf/include/asset.h
-	install -Cv -m 0644 include/audio.h $(INSTALLDIR)/mips64-elf/include/audio.h
-	install -Cv -m 0644 include/surface.h $(INSTALLDIR)/mips64-elf/include/surface.h
-	install -Cv -m 0644 include/display.h $(INSTALLDIR)/mips64-elf/include/display.h
-	install -Cv -m 0644 include/debug.h $(INSTALLDIR)/mips64-elf/include/debug.h
-	install -Cv -m 0644 include/debugcpp.h $(INSTALLDIR)/mips64-elf/include/debugcpp.h
-	install -Cv -m 0644 include/usb.h $(INSTALLDIR)/mips64-elf/include/usb.h
-	install -Cv -m 0644 include/console.h $(INSTALLDIR)/mips64-elf/include/console.h
-	install -Cv -m 0644 include/joybus.h $(INSTALLDIR)/mips64-elf/include/joybus.h
-	install -Cv -m 0644 include/mempak.h $(INSTALLDIR)/mips64-elf/include/mempak.h
-	install -Cv -m 0644 include/controller.h $(INSTALLDIR)/mips64-elf/include/controller.h
-	install -Cv -m 0644 include/rtc.h $(INSTALLDIR)/mips64-elf/include/rtc.h
-	install -Cv -m 0644 include/eeprom.h $(INSTALLDIR)/mips64-elf/include/eeprom.h
-	install -Cv -m 0644 include/eepromfs.h $(INSTALLDIR)/mips64-elf/include/eepromfs.h
-	install -Cv -m 0644 include/tpak.h $(INSTALLDIR)/mips64-elf/include/tpak.h
-	install -Cv -m 0644 include/sprite.h $(INSTALLDIR)/mips64-elf/include/sprite.h
-	install -Cv -m 0644 include/graphics.h $(INSTALLDIR)/mips64-elf/include/graphics.h
-	install -Cv -m 0644 include/rdp.h $(INSTALLDIR)/mips64-elf/include/rdp.h
-	install -Cv -m 0644 include/rsp.h $(INSTALLDIR)/mips64-elf/include/rsp.h
-	install -Cv -m 0644 include/timer.h $(INSTALLDIR)/mips64-elf/include/timer.h
-	install -Cv -m 0644 include/exception.h $(INSTALLDIR)/mips64-elf/include/exception.h
-	install -Cv -m 0644 include/system.h $(INSTALLDIR)/mips64-elf/include/system.h
-	install -Cv -m 0644 include/dir.h $(INSTALLDIR)/mips64-elf/include/dir.h
-	install -Cv -m 0644 include/libdragon.h $(INSTALLDIR)/mips64-elf/include/libdragon.h
-	install -Cv -m 0644 include/ucode.S $(INSTALLDIR)/mips64-elf/include/ucode.S
-	install -Cv -m 0644 include/rsp.inc $(INSTALLDIR)/mips64-elf/include/rsp.inc
-	install -Cv -m 0644 include/rsp_dma.inc $(INSTALLDIR)/mips64-elf/include/rsp_dma.inc
-	install -Cv -m 0644 include/rsp_assert.inc $(INSTALLDIR)/mips64-elf/include/rsp_assert.inc
-	install -Cv -m 0644 include/mixer.h $(INSTALLDIR)/mips64-elf/include/mixer.h
-	install -Cv -m 0644 include/samplebuffer.h $(INSTALLDIR)/mips64-elf/include/samplebuffer.h
-	install -Cv -m 0644 include/wav64.h $(INSTALLDIR)/mips64-elf/include/wav64.h
-	install -Cv -m 0644 include/xm64.h $(INSTALLDIR)/mips64-elf/include/xm64.h
-	install -Cv -m 0644 include/ym64.h $(INSTALLDIR)/mips64-elf/include/ym64.h
-	install -Cv -m 0644 include/ay8910.h $(INSTALLDIR)/mips64-elf/include/ay8910.h
-	install -Cv -m 0644 include/rspq.h $(INSTALLDIR)/mips64-elf/include/rspq.h
-	install -Cv -m 0644 include/rspq_constants.h $(INSTALLDIR)/mips64-elf/include/rspq_constants.h
-	install -Cv -m 0644 include/rsp_queue.inc $(INSTALLDIR)/mips64-elf/include/rsp_queue.inc
-	mkdir -p $(INSTALLDIR)/mips64-elf/include/libcart
-	install -Cv -m 0644 src/libcart/cart.h $(INSTALLDIR)/mips64-elf/include/libcart/cart.h
-	mkdir -p $(INSTALLDIR)/mips64-elf/include/fatfs
-	install -Cv -m 0644 src/fatfs/diskio.h $(INSTALLDIR)/mips64-elf/include/fatfs/diskio.h
-	install -Cv -m 0644 src/fatfs/ff.h $(INSTALLDIR)/mips64-elf/include/fatfs/ff.h
-	install -Cv -m 0644 src/fatfs/ffconf.h $(INSTALLDIR)/mips64-elf/include/fatfs/ffconf.h
+	mkdir -p $(INSTALLDIR)/$(N64_TRIPLET)/lib
+	install -Cv -m 0644 libdragon.a $(INSTALLDIR)/$(N64_TRIPLET)/lib/libdragon.a
+	install -Cv -m 0644 n64.ld $(INSTALLDIR)/$(N64_TRIPLET)/lib/n64.ld
+	install -Cv -m 0644 rsp.ld $(INSTALLDIR)/$(N64_TRIPLET)/lib/rsp.ld
+	install -Cv -m 0644 header $(INSTALLDIR)/$(N64_TRIPLET)/lib/header
+	install -Cv -m 0644 libdragonsys.a $(INSTALLDIR)/$(N64_TRIPLET)/lib/libdragonsys.a
+	install -Cv -m 0644 include/n64types.h $(INSTALLDIR)/$(N64_TRIPLET)/include/n64types.h
+	install -Cv -m 0644 include/pputils.h $(INSTALLDIR)/$(N64_TRIPLET)/include/pputils.h
+	install -Cv -m 0644 include/n64sys.h $(INSTALLDIR)/$(N64_TRIPLET)/include/n64sys.h
+	install -Cv -m 0644 include/backtrace.h $(INSTALLDIR)/$(N64_TRIPLET)/include/backtrace.h
+	install -Cv -m 0644 include/cop0.h $(INSTALLDIR)/$(N64_TRIPLET)/include/cop0.h
+	install -Cv -m 0644 include/cop1.h $(INSTALLDIR)/$(N64_TRIPLET)/include/cop1.h
+	install -Cv -m 0644 include/interrupt.h $(INSTALLDIR)/$(N64_TRIPLET)/include/interrupt.h
+	install -Cv -m 0644 include/dma.h $(INSTALLDIR)/$(N64_TRIPLET)/include/dma.h
+	install -Cv -m 0644 include/dragonfs.h $(INSTALLDIR)/$(N64_TRIPLET)/include/dragonfs.h
+	install -Cv -m 0644 include/asset.h $(INSTALLDIR)/$(N64_TRIPLET)/include/asset.h
+	install -Cv -m 0644 include/audio.h $(INSTALLDIR)/$(N64_TRIPLET)/include/audio.h
+	install -Cv -m 0644 include/surface.h $(INSTALLDIR)/$(N64_TRIPLET)/include/surface.h
+	install -Cv -m 0644 include/display.h $(INSTALLDIR)/$(N64_TRIPLET)/include/display.h
+	install -Cv -m 0644 include/debug.h $(INSTALLDIR)/$(N64_TRIPLET)/include/debug.h
+	install -Cv -m 0644 include/debugcpp.h $(INSTALLDIR)/$(N64_TRIPLET)/include/debugcpp.h
+	install -Cv -m 0644 include/usb.h $(INSTALLDIR)/$(N64_TRIPLET)/include/usb.h
+	install -Cv -m 0644 include/console.h $(INSTALLDIR)/$(N64_TRIPLET)/include/console.h
+	install -Cv -m 0644 include/joybus.h $(INSTALLDIR)/$(N64_TRIPLET)/include/joybus.h
+	install -Cv -m 0644 include/mempak.h $(INSTALLDIR)/$(N64_TRIPLET)/include/mempak.h
+	install -Cv -m 0644 include/controller.h $(INSTALLDIR)/$(N64_TRIPLET)/include/controller.h
+	install -Cv -m 0644 include/rtc.h $(INSTALLDIR)/$(N64_TRIPLET)/include/rtc.h
+	install -Cv -m 0644 include/eeprom.h $(INSTALLDIR)/$(N64_TRIPLET)/include/eeprom.h
+	install -Cv -m 0644 include/eepromfs.h $(INSTALLDIR)/$(N64_TRIPLET)/include/eepromfs.h
+	install -Cv -m 0644 include/tpak.h $(INSTALLDIR)/$(N64_TRIPLET)/include/tpak.h
+	install -Cv -m 0644 include/sprite.h $(INSTALLDIR)/$(N64_TRIPLET)/include/sprite.h
+	install -Cv -m 0644 include/graphics.h $(INSTALLDIR)/$(N64_TRIPLET)/include/graphics.h
+	install -Cv -m 0644 include/rdp.h $(INSTALLDIR)/$(N64_TRIPLET)/include/rdp.h
+	install -Cv -m 0644 include/rsp.h $(INSTALLDIR)/$(N64_TRIPLET)/include/rsp.h
+	install -Cv -m 0644 include/timer.h $(INSTALLDIR)/$(N64_TRIPLET)/include/timer.h
+	install -Cv -m 0644 include/exception.h $(INSTALLDIR)/$(N64_TRIPLET)/include/exception.h
+	install -Cv -m 0644 include/system.h $(INSTALLDIR)/$(N64_TRIPLET)/include/system.h
+	install -Cv -m 0644 include/dir.h $(INSTALLDIR)/$(N64_TRIPLET)/include/dir.h
+	install -Cv -m 0644 include/libdragon.h $(INSTALLDIR)/$(N64_TRIPLET)/include/libdragon.h
+	install -Cv -m 0644 include/ucode.S $(INSTALLDIR)/$(N64_TRIPLET)/include/ucode.S
+	install -Cv -m 0644 include/rsp.inc $(INSTALLDIR)/$(N64_TRIPLET)/include/rsp.inc
+	install -Cv -m 0644 include/rsp_dma.inc $(INSTALLDIR)/$(N64_TRIPLET)/include/rsp_dma.inc
+	install -Cv -m 0644 include/rsp_assert.inc $(INSTALLDIR)/$(N64_TRIPLET)/include/rsp_assert.inc
+	install -Cv -m 0644 include/mixer.h $(INSTALLDIR)/$(N64_TRIPLET)/include/mixer.h
+	install -Cv -m 0644 include/samplebuffer.h $(INSTALLDIR)/$(N64_TRIPLET)/include/samplebuffer.h
+	install -Cv -m 0644 include/wav64.h $(INSTALLDIR)/$(N64_TRIPLET)/include/wav64.h
+	install -Cv -m 0644 include/xm64.h $(INSTALLDIR)/$(N64_TRIPLET)/include/xm64.h
+	install -Cv -m 0644 include/ym64.h $(INSTALLDIR)/$(N64_TRIPLET)/include/ym64.h
+	install -Cv -m 0644 include/ay8910.h $(INSTALLDIR)/$(N64_TRIPLET)/include/ay8910.h
+	install -Cv -m 0644 include/rspq.h $(INSTALLDIR)/$(N64_TRIPLET)/include/rspq.h
+	install -Cv -m 0644 include/rspq_constants.h $(INSTALLDIR)/$(N64_TRIPLET)/include/rspq_constants.h
+	install -Cv -m 0644 include/rsp_queue.inc $(INSTALLDIR)/$(N64_TRIPLET)/include/rsp_queue.inc
+	mkdir -p $(INSTALLDIR)/$(N64_TRIPLET)/include/libcart
+	install -Cv -m 0644 src/libcart/cart.h $(INSTALLDIR)/$(N64_TRIPLET)/include/libcart/cart.h
+	mkdir -p $(INSTALLDIR)/$(N64_TRIPLET)/include/fatfs
+	install -Cv -m 0644 src/fatfs/diskio.h $(INSTALLDIR)/$(N64_TRIPLET)/include/fatfs/diskio.h
+	install -Cv -m 0644 src/fatfs/ff.h $(INSTALLDIR)/$(N64_TRIPLET)/include/fatfs/ff.h
+	install -Cv -m 0644 src/fatfs/ffconf.h $(INSTALLDIR)/$(N64_TRIPLET)/include/fatfs/ffconf.h
 
 
 clean:

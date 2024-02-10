@@ -11,21 +11,27 @@ N64_ROM_REGIONFREE = # Set to true to allow booting on any console region
 N64_GCCPREFIX ?= $(N64_INST)
 N64_ROOTDIR = $(N64_INST)
 N64_BINDIR = $(N64_ROOTDIR)/bin
-N64_INCLUDEDIR = $(N64_ROOTDIR)/mips64-elf/include
-N64_LIBDIR = $(N64_ROOTDIR)/mips64-elf/lib
+N64_TRIPLET = mips64-libdragon-elf
+N64_RSP_TRIPLET = mips64-elf
+N64_INCLUDEDIR = $(N64_ROOTDIR)/$(N64_TRIPLET)/include
+N64_LIBDIR = $(N64_ROOTDIR)/$(N64_TRIPLET)/lib
 N64_HEADERPATH = $(N64_LIBDIR)/header
-N64_GCCPREFIX_TRIPLET = $(N64_GCCPREFIX)/bin/mips64-elf-
+N64_GCCPREFIX_TRIPLET = $(N64_GCCPREFIX)/bin/$(N64_TRIPLET)-
+N64_RSP_GCCPREFIX_TRIPLET = $(N64_GCCPREFIX)/bin/$(N64_RSP_TRIPLET)-
 
 COMMA:=,
 
+N64_RSP_CC = $(N64_RSP_GCCPREFIX_TRIPLET)gcc
 N64_CC = $(N64_GCCPREFIX_TRIPLET)gcc
 N64_CXX = $(N64_GCCPREFIX_TRIPLET)g++
 N64_AS = $(N64_GCCPREFIX_TRIPLET)as
 N64_AR = $(N64_GCCPREFIX_TRIPLET)ar
 N64_LD = $(N64_GCCPREFIX_TRIPLET)ld
+N64_RSP_LD = $(N64_RSP_GCCPREFIX_TRIPLET)ld
 N64_OBJCOPY = $(N64_GCCPREFIX_TRIPLET)objcopy
+N64_RSP_OBJCOPY = $(N64_RSP_GCCPREFIX_TRIPLET)objcopy
 N64_OBJDUMP = $(N64_GCCPREFIX_TRIPLET)objdump
-N64_SIZE = $(N64_GCCPREFIX_TRIPLET)size
+N64_RSP_SIZE = $(N64_RSP_GCCPREFIX_TRIPLET)size
 N64_NM = $(N64_GCCPREFIX_TRIPLET)nm
 
 N64_CHKSUM = $(N64_BINDIR)/chksum64
@@ -36,13 +42,14 @@ N64_SYM = $(N64_BINDIR)/n64sym
 N64_AUDIOCONV = $(N64_BINDIR)/audioconv64
 
 N64_C_AND_CXX_FLAGS =  -march=vr4300 -mtune=vr4300 -I$(N64_INCLUDEDIR)
+N64_C_AND_CXX_FLAGS += -mabi=n32 -fno-pie -no-pie
 N64_C_AND_CXX_FLAGS += -falign-functions=32   # NOTE: if you change this, also change backtrace() in backtrace.c
 N64_C_AND_CXX_FLAGS += -ffunction-sections -fdata-sections -g -ffile-prefix-map="$(CURDIR)"=
-N64_C_AND_CXX_FLAGS += -DN64 -O2 -Wall -Werror -Wno-error=deprecated-declarations -fdiagnostics-color=always
+N64_C_AND_CXX_FLAGS += -DN64 -O2 -Wall -Wno-error=deprecated-declarations -fdiagnostics-color=always
 N64_CFLAGS = $(N64_C_AND_CXX_FLAGS) -std=gnu99
 N64_CXXFLAGS = $(N64_C_AND_CXX_FLAGS)
-N64_ASFLAGS = -mtune=vr4300 -march=vr4300 -Wa,--fatal-warnings -I$(N64_INCLUDEDIR)
-N64_RSPASFLAGS = -march=mips1 -mabi=32 -Wa,--fatal-warnings -I$(N64_INCLUDEDIR)
+N64_ASFLAGS = -mtune=vr4300 -march=vr4300 -mabi=n32 -Wa,--fatal-warnings -I$(N64_INCLUDEDIR)
+N64_RSPASFLAGS = -march=mips1 -mabi=32 -Wa,-32 -Wa,--fatal-warnings -I$(N64_INCLUDEDIR)
 N64_LDFLAGS = -g -L$(N64_LIBDIR) -ldragon -lm -ldragonsys -Tn64.ld --gc-sections --wrap __do_global_ctors
 
 N64_TOOLFLAGS = --header $(N64_HEADERPATH) --title $(N64_ROM_TITLE)
@@ -112,23 +119,23 @@ $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.S
 		DATASECTION="$(basename $@).data"; \
 		BINARY="$(basename $@).elf"; \
 		echo "    [RSP] $<"; \
-		$(N64_CC) $(RSPASFLAGS) -L$(N64_LIBDIR) -nostartfiles -Wl,-Trsp.ld -Wl,--gc-sections -o $@ $<; \
+		$(N64_RSP_CC) $(RSPASFLAGS) -L$(N64_LIBDIR) -nostartfiles -Wl,-Trsp.ld -Wl,--gc-sections -o $@ $<; \
 		mv "$@" $$BINARY; \
-		$(N64_OBJCOPY) -O binary -j .text $$BINARY $$TEXTSECTION.bin; \
-		$(N64_OBJCOPY) -O binary -j .data $$BINARY $$DATASECTION.bin; \
-		$(N64_OBJCOPY) -I binary -O elf32-bigmips -B mips4300 \
+		$(N64_RSP_OBJCOPY) -O binary -j .text $$BINARY $$TEXTSECTION.bin; \
+		$(N64_RSP_OBJCOPY) -O binary -j .data $$BINARY $$DATASECTION.bin; \
+		$(N64_OBJCOPY) -I binary -O elf32-ntradbigmips -B mips4300 \
 				--redefine-sym _binary_$${SYMPREFIX}_text_bin_start=$${FILENAME}_text_start \
 				--redefine-sym _binary_$${SYMPREFIX}_text_bin_end=$${FILENAME}_text_end \
 				--redefine-sym _binary_$${SYMPREFIX}_text_bin_size=$${FILENAME}_text_size \
 				--set-section-alignment .data=8 \
 				--rename-section .text=.data $$TEXTSECTION.bin $$TEXTSECTION.o; \
-		$(N64_OBJCOPY) -I binary -O elf32-bigmips -B mips4300 \
+		$(N64_OBJCOPY) -I binary -O elf32-ntradbigmips -B mips4300 \
 				--redefine-sym _binary_$${SYMPREFIX}_data_bin_start=$${FILENAME}_data_start \
 				--redefine-sym _binary_$${SYMPREFIX}_data_bin_end=$${FILENAME}_data_end \
 				--redefine-sym _binary_$${SYMPREFIX}_data_bin_size=$${FILENAME}_data_size \
 				--set-section-alignment .data=8 \
 				--rename-section .text=.data $$DATASECTION.bin $$DATASECTION.o; \
-		$(N64_SIZE) -G $$BINARY; \
+		$(N64_RSP_SIZE) -G $$BINARY; \
 		$(N64_LD) -relocatable $$TEXTSECTION.o $$DATASECTION.o -o $@; \
 		rm $$TEXTSECTION.bin $$DATASECTION.bin $$TEXTSECTION.o $$DATASECTION.o; \
 	else \

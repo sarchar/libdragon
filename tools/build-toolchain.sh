@@ -14,13 +14,18 @@ if [ -z "${N64_INST-}" ]; then
     exit 1
 fi
 
+# Path where the script (and patch) reside
+# Won't work if you symlink to the script
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 # Path where the toolchain will be built.
 BUILD_PATH="${BUILD_PATH:-toolchain}"
 
 # Defines the build system variables to allow cross compilation.
 N64_BUILD=${N64_BUILD:-""}
 N64_HOST=${N64_HOST:-""}
-N64_TARGET=${N64_TARGET:-mips64-elf}
+N64_TARGET=${N64_TARGET:-mips64-libdragon-elf}
+N64_TARGET_RSP=${N64_TARGET_RSP:-mips64-elf}
 
 # Set N64_INST before calling the script to change the default installation directory path
 INSTALL_PATH="${N64_INST}"
@@ -99,7 +104,11 @@ cd "$BUILD_PATH"
 
 # Dependency downloads and unpack
 test -f "binutils-$BINUTILS_V.tar.gz" || download "https://ftp.gnu.org/gnu/binutils/binutils-$BINUTILS_V.tar.gz"
-test -d "binutils-$BINUTILS_V"        || tar -xzf "binutils-$BINUTILS_V.tar.gz"
+test -d "binutils-$BINUTILS_V"        || (
+    tar -xzf "binutils-$BINUTILS_V.tar.gz" && \
+    cd "binutils-$BINUTILS_V" && \
+    patch -p1 < "$SCRIPT_DIR"/binutils-2.41-libdragon.patch
+)
 
 test -f "gcc-$GCC_V.tar.gz"           || download "https://ftp.gnu.org/gnu/gcc/gcc-$GCC_V/gcc-$GCC_V.tar.gz"
 test -d "gcc-$GCC_V"                  || tar -xzf "gcc-$GCC_V.tar.gz"
@@ -186,10 +195,21 @@ fi
 # Compile BUILD->TARGET binutils
 mkdir -p binutils_compile_target
 pushd binutils_compile_target
-../"binutils-$BINUTILS_V"/configure \
+CFLAGS="-DTE_TMIPS" ../"binutils-$BINUTILS_V"/configure \
     --prefix="$CROSS_PREFIX" \
     --target="$N64_TARGET" \
     --with-cpu=mips64vr4300 \
+    --disable-werror
+make -j "$JOBS"
+make install-strip || sudo make install-strip || su -c "make install-strip"
+popd
+
+# Compile BUILD->RSP TARGET binutils
+mkdir -p binutils_compile_target_rsp
+pushd binutils_compile_target_rsp
+../"binutils-$BINUTILS_V"/configure \
+    --prefix="$CROSS_PREFIX" \
+    --target="$N64_TARGET_RSP" \
     --disable-werror
 make -j "$JOBS"
 make install-strip || sudo make install-strip || su -c "make install-strip"
@@ -203,6 +223,7 @@ pushd gcc_compile_target
     --prefix="$CROSS_PREFIX" \
     --target="$N64_TARGET" \
     --with-arch=vr4300 \
+    --with-abi=n32 \
     --with-tune=vr4300 \
     --enable-languages=c,c++ \
     --without-headers \
@@ -221,10 +242,34 @@ make all-target-libgcc -j "$JOBS"
 make install-target-libgcc || sudo make install-target-libgcc || su -c "make install-target-libgcc"
 popd
 
+# Compile GCC for MIPS N64 RSP.
+mkdir -p gcc_compile_target_rsp
+pushd gcc_compile_target_rsp
+../"gcc-$GCC_V"/configure "${GCC_CONFIGURE_ARGS[@]}" \
+    --prefix="$CROSS_PREFIX" \
+    --target="$N64_TARGET_RSP" \
+    --with-arch=vr4300 \
+    --with-tune=vr4300 \
+    --enable-languages=c \
+    --without-headers \
+    --disable-libssp \
+    --disable-shared \
+    --with-gcc \
+    --disable-threads \
+    --disable-win32-registry \
+    --disable-nls \
+    --disable-werror 
+make all-gcc -j "$JOBS"
+make install-gcc || sudo make install-gcc || su -c "make install-gcc"
+make all-target-libgcc -j "$JOBS"
+make install-target-libgcc || sudo make install-target-libgcc || su -c "make install-target-libgcc"
+popd
+
 # Compile newlib for target.
+# It is only necessary for vr4300
 mkdir -p newlib_compile_target
 pushd newlib_compile_target
-CFLAGS_FOR_TARGET="-DHAVE_ASSERT_FUNC -O2" ../"newlib-$NEWLIB_V"/configure \
+CFLAGS_FOR_TARGET="-DHAVE_ASSERT_FUNC -O2 -mabi=n32" ../"newlib-$NEWLIB_V"/configure \
     --prefix="$CROSS_PREFIX" \
     --target="$N64_TARGET" \
     --with-cpu=mips64vr4300 \
@@ -238,10 +283,12 @@ popd
 # For a standard cross-compiler, the only thing left is to finish compiling the target libraries
 # like libstd++. We can continue on the previous GCC build target.
 if [ "$N64_BUILD" == "$N64_HOST" ]; then
-    pushd gcc_compile_target
-    make all -j "$JOBS"
-    make install-strip || sudo make install-strip || su -c "make install-strip"
-    popd
+    for dir in gcc_compile_target gcc_compile_target_rsp; do
+        pushd $dir
+        make all -j "$JOBS"
+        make install-strip || sudo make install-strip || su -c "make install-strip"
+        popd
+    done
 else
     # Compile HOST->TARGET binutils
     # NOTE: we pass --without-msgpack to workaround a bug in Binutils, introduced

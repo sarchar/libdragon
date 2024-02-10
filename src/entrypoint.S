@@ -6,7 +6,9 @@
 
 	.set noreorder
 
-	.section .boot
+	.extern main
+
+	.section .boot, "ax"
 	.global _start
 _start:
 	/* Watchpoints have been proven to persist across resets and even

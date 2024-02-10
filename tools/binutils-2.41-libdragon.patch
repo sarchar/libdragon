@@ -1,0 +1,53 @@
+diff -ur binutils-2.41/bfd/config.bfd binutils-2.41.libdragon/bfd/config.bfd
+--- binutils-2.41/bfd/config.bfd	2023-07-03 06:00:00.000000000 +0700
++++ binutils-2.41.libdragon/bfd/config.bfd	2024-02-09 23:20:07.040752075 +0700
+@@ -901,6 +901,11 @@
+     targ_defvec=mips_elf32_le_vec
+     targ_selvecs="mips_elf32_be_vec mips_elf32_le_vec mips_elf64_be_vec mips_elf64_le_vec"
+     ;;
++  mips64-libdragon-elf*)
++    targ_defvec=mips_elf32_ntrad_be_vec
++    targ_selvecs="mips_elf32_ntrad_le_vec mips_elf32_trad_be_vec mips_elf32_trad_le_vec mips_elf64_trad_be_vec mips_elf64_trad_le_vec mips_elf32_be_vec"
++    want64=true
++    ;;
+   mips*-*-irix5*)
+     targ_defvec=mips_elf32_be_vec
+     targ_selvecs="mips_elf32_le_vec mips_ecoff_be_vec mips_ecoff_le_vec"
+diff -ur binutils-2.41/gas/configure binutils-2.41.libdragon/gas/configure
+--- binutils-2.41/gas/configure	2023-07-03 06:00:00.000000000 +0700
++++ binutils-2.41.libdragon/gas/configure	2024-02-10 14:42:53.643061752 +0700
+@@ -12227,7 +12227,7 @@
+ 	    mips_default_abi=N64_ABI
+ 	    ;;
+ 	  mips64*-linux* | mips-sgi-irix6* | mips64*-freebsd* \
+-	  | mips64*-kfreebsd*-gnu | mips64*-ps2-elf*)
++	  | mips64*-kfreebsd*-gnu | mips64*-ps2-elf* | mips64*-libdragon-elf*)
+ 	    mips_default_abi=N32_ABI
+ 	    ;;
+ 	  mips*-linux* | mips*-freebsd* | mips*-kfreebsd*-gnu)
+diff -ur binutils-2.41/gas/configure.ac binutils-2.41.libdragon/gas/configure.ac
+--- binutils-2.41/gas/configure.ac	2023-07-03 06:00:00.000000000 +0700
++++ binutils-2.41.libdragon/gas/configure.ac	2024-02-09 23:28:06.960750604 +0700
+@@ -396,7 +396,7 @@
+ 	    mips_default_abi=N64_ABI
+ 	    ;;
+ 	  mips64*-linux* | mips-sgi-irix6* | mips64*-freebsd* \
+-	  | mips64*-kfreebsd*-gnu | mips64*-ps2-elf*)
++	  | mips64*-kfreebsd*-gnu | mips64*-ps2-elf* | mips64*-libdragon-elf*)
+ 	    mips_default_abi=N32_ABI
+ 	    ;;
+ 	  mips*-linux* | mips*-freebsd* | mips*-kfreebsd*-gnu)
+diff -ur binutils-2.41/ld/configure.tgt binutils-2.41.libdragon/ld/configure.tgt
+--- binutils-2.41/ld/configure.tgt	2023-07-03 06:00:00.000000000 +0700
++++ binutils-2.41.libdragon/ld/configure.tgt	2024-02-09 23:35:40.440744411 +0700
+@@ -567,6 +567,10 @@
+ 			targ_extra_emuls="elf32lr5900n32"
+ 			targ_extra_libpath=$targ_extra_emuls
+ 			;;
++mips64*-libdragon-elf*) targ_emul=elf32btsmipn32
++			targ_extra_emuls="elf64ltsmip elf32btsmipn32 elf32ltsmipn32 elf32btsmip elf32ltsmip elf32bmip"
++			targ_extra_libpath=$targ_extra_emuls
++			;;
+ mips*el-*-elf*)		targ_emul=elf32elmip
+ 			;;
+ mips*-*-elf* | mips*-*-rtems*)

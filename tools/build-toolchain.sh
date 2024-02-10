@@ -25,7 +25,6 @@ BUILD_PATH="${BUILD_PATH:-toolchain}"
 N64_BUILD=${N64_BUILD:-""}
 N64_HOST=${N64_HOST:-""}
 N64_TARGET=${N64_TARGET:-mips64-libdragon-elf}
-N64_TARGET_RSP=${N64_TARGET_RSP:-mips64-elf}
 
 # Set N64_INST before calling the script to change the default installation directory path
 INSTALL_PATH="${N64_INST}"
@@ -204,17 +203,6 @@ make -j "$JOBS"
 make install-strip || sudo make install-strip || su -c "make install-strip"
 popd
 
-# Compile BUILD->RSP TARGET binutils
-mkdir -p binutils_compile_target_rsp
-pushd binutils_compile_target_rsp
-../"binutils-$BINUTILS_V"/configure \
-    --prefix="$CROSS_PREFIX" \
-    --target="$N64_TARGET_RSP" \
-    --disable-werror
-make -j "$JOBS"
-make install-strip || sudo make install-strip || su -c "make install-strip"
-popd
-
 # Compile GCC for MIPS N64.
 # We need to build the C++ compiler to build the target libstd++ later.
 mkdir -p gcc_compile_target
@@ -232,29 +220,6 @@ pushd gcc_compile_target
     --disable-shared \
     --with-gcc \
     --with-newlib \
-    --disable-threads \
-    --disable-win32-registry \
-    --disable-nls \
-    --disable-werror 
-make all-gcc -j "$JOBS"
-make install-gcc || sudo make install-gcc || su -c "make install-gcc"
-make all-target-libgcc -j "$JOBS"
-make install-target-libgcc || sudo make install-target-libgcc || su -c "make install-target-libgcc"
-popd
-
-# Compile GCC for MIPS N64 RSP.
-mkdir -p gcc_compile_target_rsp
-pushd gcc_compile_target_rsp
-../"gcc-$GCC_V"/configure "${GCC_CONFIGURE_ARGS[@]}" \
-    --prefix="$CROSS_PREFIX" \
-    --target="$N64_TARGET_RSP" \
-    --with-arch=vr4300 \
-    --with-tune=vr4300 \
-    --enable-languages=c \
-    --without-headers \
-    --disable-libssp \
-    --disable-shared \
-    --with-gcc \
     --disable-threads \
     --disable-win32-registry \
     --disable-nls \
@@ -283,12 +248,10 @@ popd
 # For a standard cross-compiler, the only thing left is to finish compiling the target libraries
 # like libstd++. We can continue on the previous GCC build target.
 if [ "$N64_BUILD" == "$N64_HOST" ]; then
-    for dir in gcc_compile_target gcc_compile_target_rsp; do
-        pushd $dir
-        make all -j "$JOBS"
-        make install-strip || sudo make install-strip || su -c "make install-strip"
-        popd
-    done
+    pushd gcc_compile_target
+    make all -j "$JOBS"
+    make install-strip || sudo make install-strip || su -c "make install-strip"
+    popd
 else
     # Compile HOST->TARGET binutils
     # NOTE: we pass --without-msgpack to workaround a bug in Binutils, introduced
@@ -355,11 +318,6 @@ else
     make install-strip || sudo make install-strip || su -c "make install-strip"
     popd
 fi
-
-# regdef.h is from newlib, just use mips64-libdragon-elf for now
-mkdir -p "$CROSS_PREFIX/$N64_TARGET_RSP/include/machine"
-cp -av "$CROSS_PREFIX/$N64_TARGET/include/regdef.h" "$CROSS_PREFIX/$N64_TARGET_RSP/include"
-cp -av "$CROSS_PREFIX/$N64_TARGET/include/machine/regdef.h" "$CROSS_PREFIX/$N64_TARGET_RSP/include/machine"
 
 if [ "$MAKE_V" != "" ]; then
     pushd "make-$MAKE_V"

@@ -108,7 +108,7 @@ void symbol_add(const char *elf, uint32_t addr, bool is_func)
             cur_elf = NULL; addr2line_r = addr2line_w = NULL;
         }
         if (!addrbin)
-            asprintf(&addrbin, "%s/bin/mips64-elf-addr2line", n64_inst);
+            asprintf(&addrbin, "%s/bin/mips64-libdragon-elf-addr2line", n64_inst);
 
         const char *cmd_addr[16] = {0}; int i = 0;
         cmd_addr[i++] = addrbin;
@@ -188,7 +188,7 @@ void elf_find_callsites(const char *elf)
 {
     // Start objdump to parse the disassembly of the ELF file
     char *cmd = NULL;
-    asprintf(&cmd, "%s/bin/mips64-elf-objdump -d %s", n64_inst, elf);
+    asprintf(&cmd, "%s/bin/mips64-libdragon-elf-objdump -d %s", n64_inst, elf);
     verbose("Running: %s\n", cmd);
     FILE *disasm = popen(cmd, "r");
     if (!disasm) {

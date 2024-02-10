@@ -89,6 +89,7 @@ FILE *must_fopen(const char *fn)
     return f;
 }
 
+#if 0
 static void* decompress_inplace(asset_compression_t *algo, const char *fn, FILE *fp, size_t cmp_size, size_t size, int margin)
 {
     // Consistency check on input data
@@ -146,6 +147,7 @@ static void* decompress_inplace(asset_compression_t *algo, const char *fn, FILE 
     assertf(s == ptr, "asset: realloc moved the buffer"); // guaranteed by newlib
     return ptr;
 }
+#endif
 
 void *asset_load(const char *fn, int *sz)
 {
@@ -162,6 +164,7 @@ void *asset_load(const char *fn, int *sz)
     asset_header_t header;
     fread(&header, 1, sizeof(asset_header_t), f);
     if (!memcmp(header.magic, ASSET_MAGIC, 3)) {
+#if 0 // TODO Rust compression
         if (header.version != '3') {
             assertf(0, "unsupported asset version: %c\nMake sure to rebuild libdragon tools and your assets", header.version);
             return NULL;
@@ -185,6 +188,10 @@ void *asset_load(const char *fn, int *sz)
             s = decompress_inplace(&algos[header.algo-1], fn, f, header.cmp_size, size, header.inplace_margin);
         else
             s = algos[header.algo-1].decompress_full(fn, f, header.cmp_size, size);
+#else
+        assert(0);
+        s = NULL;
+#endif
     } else {
         // Allocate a buffer big enough to hold the file.
         // We force a 32-byte alignment for the buffer so that it's aligned to instruction cache lines.

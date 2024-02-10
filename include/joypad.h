@@ -227,6 +227,16 @@ typedef union joypad_buttons_u
     /// @cond
     };
     /// @endcond
+
+    /** @brief padding to interop with Rust
+     *
+     * Without the padding, joypad_inputs_t is 64 bits large,
+     * and joypad_buttons_t is 16 bits.
+     * We need be larger than 128 bits to change sret. Placed
+     * here in joypad_buttons_t to make both structures large enough
+     * This is an silly waste of space, but it is what it is for now.
+     */
+    uint8_t _r_padding[17]; // 136 bits
 } joypad_buttons_t;
 
 /** @brief Joypad Inputs Unified State Structure */

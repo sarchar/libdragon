@@ -2,6 +2,7 @@ N64_GCCPREFIX ?= $(N64_INST)
 INSTALLDIR ?= $(N64_INST)
 CFLAGS   += -std=gnu11 -O2 -Wall -Werror -Wno-unused-result -Wno-error=unknown-pragmas -Wno-sign-compare -I../include -MMD
 CXXFLAGS += -std=gnu++17 -O2 -Wall -Werror -Wno-unused-result -Wno-error=unknown-pragmas -Wno-sign-compare -Wno-c++11-narrowing -Wno-narrowing -Wno-error=conversion-null -I../include -MMD
+N64_TRIPLET = mips64-libdragon-elf
 
 ifeq ($(OS),Windows_NT)
 	CFLAGS += -static
@@ -39,8 +40,8 @@ common/mips_decomp_l3.bin: ../src/compress/shrinkler_dec_fast.S
 
 $(DECOMP_STUBS):
 	@echo "    [MIPS] $@"
-	$(N64_GCCPREFIX)/bin/mips64-elf-gcc -c -o $@.o $<
-	$(N64_GCCPREFIX)/bin/mips64-elf-objcopy -O binary $@.o $@
+	$(N64_GCCPREFIX)/bin/$(N64_TRIPLET)-gcc -c -o $@.o $<
+	$(N64_GCCPREFIX)/bin/$(N64_TRIPLET)-objcopy -O binary $@.o $@
 	rm $@.o
 
 -include $(wildcard common/*.d)
@@ -62,7 +63,8 @@ ed64romconfig_OBJS = ed64romconfig.o
 n64elfcompress_OBJS = n64elfcompress/n64elfcompress.o common/assetcomp.a
 n64elfcompress/n64elfcompress.o: n64elfcompress/n64elfcompress.c $(DECOMP_STUBS)
 
-TOOLS = n64tool n64sym n64elfcompress ed64romconfig audioconv64 mkdfs dumpdfs mkasset mksprite mkfont mkmodel n64dso n64dso-msym n64dso-extern rdpvalidate
+#TOOLS = n64tool n64sym n64elfcompress ed64romconfig audioconv64 mkdfs dumpdfs mkasset mksprite mkfont mkmodel n64dso n64dso-msym n64dso-extern rdpvalidate
+TOOLS = n64tool n64sym ed64romconfig audioconv64 mkdfs dumpdfs mkasset mksprite mkfont mkmodel n64dso n64dso-msym n64dso-extern rdpvalidate
 
 # Define a variable that has value ".exe" on Windows and "" on other platforms
 EXE = $(if $(findstring Windows,$(OS)),.exe,)

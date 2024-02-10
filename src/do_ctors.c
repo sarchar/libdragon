@@ -21,7 +21,7 @@ extern func_ptr __CTOR_LIST__[] __attribute__((section (".data")));
 extern func_ptr __CTOR_END__[] __attribute__((section (".data")));
 
 /** @brief Pointer to the beginning of exception frames */
-extern char __EH_FRAME_BEGIN__[];
+//extern char __EH_FRAME_BEGIN__[];
 
 /**
  * @brief Data used for registering exception frame info
@@ -54,7 +54,7 @@ void __do_global_ctors()
 	func_ptr * ctor_addr = __CTOR_END__ - 1;
 	func_ptr * ctor_sentinel = __CTOR_LIST__;
 	// Register exception handler frames
-	__register_frame_info(__EH_FRAME_BEGIN__, eh_frame_object);
+	//__register_frame_info(__EH_FRAME_BEGIN__, eh_frame_object);
 	assertf((uint32_t) ctor_sentinel[0] != 0xFFFFFFFF,
 		"Invalid constructor sentinel.\nWhen linking with g++, please specify:\n   --wrap __do_global_ctors");
 	while (ctor_addr >= ctor_sentinel) {
@@ -79,7 +79,7 @@ void __wrap___do_global_ctors()
 	func_ptr * ctor_addr = __CTOR_END__ - 2;
 	func_ptr * ctor_sentinel = __CTOR_LIST__;
 	// Register exception handler frames
-	__register_frame_info(__EH_FRAME_BEGIN__, eh_frame_object);
+	//__register_frame_info(__EH_FRAME_BEGIN__, eh_frame_object);
 	// This will break if you link using LD. You'll need to change the linker
 	// script and add the sentinel manually. g++ already does that but ld does
 	// not. In that case, this will skip the last function. If this was an

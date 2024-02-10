@@ -55,7 +55,7 @@ typedef enum {
  *
  * DO NOT modify the order unless editing inthandler.S
  */
-typedef struct __attribute__((packed))
+typedef struct
 {
     /** @brief General purpose registers 1-32 */
     uint64_t gpr[32];

@@ -324,4 +324,5 @@ void joybus_exec( const void * input, void * output )
     }
 }
 
+extern inline void joybus_exec_cmd(int, size_t, size_t, const void *, void*);
 /** @} */ /* joybus */

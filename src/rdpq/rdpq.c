@@ -1130,6 +1130,8 @@ void rdpq_call_deferred(void (*func)(void *), void *arg)
 /** @} */
 
 /* Extern inline instantiations. */
+extern inline void rdpq_set_chromakey_parms(color_t color, int edge_r, int edge_g, int edge_b, int width_r, int width_g, int width_b);
+extern inline void rdpq_set_yuv_parms(uint16_t k0, uint16_t k1, uint16_t k2, uint16_t k3, uint16_t k4, uint16_t k5);
 extern inline void rdpq_set_fill_color(color_t color);
 extern inline void rdpq_set_fill_color_stripes(color_t color1, color_t color2);
 extern inline void rdpq_set_fog_color(color_t color);

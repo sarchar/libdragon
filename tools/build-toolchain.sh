@@ -261,7 +261,7 @@ else
     echo "Compiling binutils-$BINUTILS_V for foreign host"
     mkdir -p binutils_compile_host
     pushd binutils_compile_host
-    ../"binutils-$BINUTILS_V"/configure \
+    CFLAGS="-DTE_TMIPS" ../"binutils-$BINUTILS_V"/configure \
         --prefix="$INSTALL_PATH" \
         --build="$N64_BUILD" \
         --host="$N64_HOST" \

@@ -10,6 +10,7 @@ on:
   pull_request:
     paths:
       - 'tools/build-toolchain.sh'
+  workflow_dispatch:
   
 jobs:
   Build-Toolchain:

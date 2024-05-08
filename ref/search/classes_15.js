@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['ym5header_0',['ym5header',['../ym64_8c.html#structym5header',1,'']]],
-  ['ym64player_5fsonginfo_5ft_1',['ym64player_songinfo_t',['../ym64_8h.html#structym64player__songinfo__t',1,'']]],
-  ['ym64player_5ft_2',['ym64player_t',['../ym64_8h.html#structym64player__t',1,'']]]
+  ['wav64_5fheader_5ft_0',['wav64_header_t',['../structwav64__header__t.html',1,'']]],
+  ['wav64_5fheader_5fvadpcm_5ft_1',['wav64_header_vadpcm_t',['../structwav64__header__vadpcm__t.html',1,'']]],
+  ['wav64_5fopus_5fheader_5fext_2',['wav64_opus_header_ext',['../wav64__opus_8c.html#structwav64__opus__header__ext',1,'']]],
+  ['wav64_5fopus_5fstate_3',['wav64_opus_state',['../wav64__opus_8c.html#structwav64__opus__state',1,'']]],
+  ['wav64_5ft_4',['wav64_t',['../wav64_8h.html#structwav64__t',1,'']]],
+  ['wav64_5fvadpcm_5fvector_5ft_5',['wav64_vadpcm_vector_t',['../structwav64__vadpcm__vector__t.html',1,'']]],
+  ['waveform_5ft_6',['waveform_t',['../mixer_8h.html#structwaveform__t',1,'']]]
 ];

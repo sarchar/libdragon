@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['year_0',['year',['../group__rtc.html#a812da29fb4a23cf0e138f530283c7bb8',1,'rtc_time_t']]]
+  ['v_0',['v',['../structwav64__vadpcm__vector__t.html#acd915e801499ad26dddf97829edc52c0',1,'wav64_vadpcm_vector_t']]],
+  ['v_5fint_1',['v_int',['../group__lowlevel.html#a78d31d9148d84ffe2e31b4c8314eb59e',1,'VI_regs_t']]],
+  ['v_5flimits_2',['v_limits',['../group__lowlevel.html#a0a7255f9219ef588808846d57882b5fa',1,'VI_regs_t']]],
+  ['v_5fscale_3',['v_scale',['../group__lowlevel.html#a7154f52a793a1229191cb8171c520d9e',1,'VI_regs_t']]],
+  ['v_5fsync_4',['v_sync',['../group__lowlevel.html#a41a71cafa3141b8eda5f011c971f817e',1,'VI_regs_t']]],
+  ['vaccum_5',['vaccum',['../rsp_8h.html#a0a922c0b0bd1e4a58a389d53125d5bd3',1,'rsp_snapshot_t']]],
+  ['valid_6',['valid',['../group__controllerpak.html#ac6f84c97a7f4614d2a89463baa8874be',1,'entry_structure_t']]],
+  ['valign_7',['valign',['../rdpq__text_8h.html#a6de659bfe38e8cdf4aee8833b0c2b4be',1,'rdpq_textparms_t::valign()'],['../yuv_8h.html#a38953c7a3b66fc9c857b3a6a2be4e1b1',1,'yuv_fmv_parms_t::valign()']]],
+  ['value_8',['value',['../structdso__sym__t.html#aa4a499cc0ab9f6c086d0cd4b1918ac75',1,'dso_sym_t']]],
+  ['vctx_9',['vctx',['../rdpq__debug_8c.html#a52d74e6c552cd91351bb42b55d80b4cb',1,'rdpq_debug.c']]],
+  ['vendor_10',['vendor',['../group__controllerpak.html#a4e65c83bc81eb966642da54ae8c885f5',1,'entry_structure_t']]],
+  ['version_11',['version',['../structwav64__header__t.html#a41f089df9c3a1121a13adeecca288596',1,'wav64_header_t::version()'],['../group__lowlevel.html#afd8c6c5c941763964cdb3db04d731923',1,'MI_regs_t::version()'],['../structsprite__ext__t.html#a3bfa3f371fd2e730dcdb71c923be078d',1,'sprite_ext_t::version()'],['../structrdpq__font__t.html#a46d86c17e698bb8b21946d360c3e63f0',1,'rdpq_font_t::version()'],['../structmodel64__data__t.html#a5406afa867cc89625ee2a54f50238813',1,'model64_data_t::version()'],['../backtrace_8c.html#a49df133ec55445f03fd42411feafd66c',1,'symtable_header_t::version()'],['../structasset__header__t.html#a27a6d9b3639eee4a44c290b23e90ae95',1,'asset_header_t::version()']]],
+  ['version_5fnumber_12',['version_number',['../tpak_8h.html#ab742ef846978b3ffe4a313374479c0b8',1,'gameboy_cartridge_header']]],
+  ['vertex_5fprecision_13',['vertex_precision',['../structprimitive__t.html#a75cd85dc5793688c950a079a1085a231',1,'primitive_t']]],
+  ['vi_5fcallback_14',['VI_callback',['../group__interrupt.html#gae53298ee0d7e09b763c88bce13f41d58',1,'interrupt.c']]],
+  ['vol_15',['vol',['../structAYEnvelope.html#abc79941d9d5d3d5c9f22f0b4d97cdffa',1,'AYEnvelope']]],
+  ['vpr_16',['vpr',['../rsp_8h.html#a007496e4e8d0e57e66462151c8156051',1,'rsp_snapshot_t']]],
+  ['vslices_17',['vslices',['../sprite_8h.html#a3b1f4d3f9dd51d45993bda45a6d474d3',1,'sprite_t']]]
 ];

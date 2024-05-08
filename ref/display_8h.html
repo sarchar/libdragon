@@ -95,6 +95,12 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:gad298e25a8f8ecc4dc2d7b402aee243ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__display.html#gad298e25a8f8ecc4dc2d7b402aee243ed">interlace_mode_t</a> { <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaab4a98924c7e8cbcb5f954e9a252175c">INTERLACE_OFF</a>
+, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaa60f8b24c561369b9d727a5cec9b4c34">INTERLACE_HALF</a>
+, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243eda3f3386fd28fb8bc1c9b83c2f0a5439a9">INTERLACE_FULL</a>
+ }</td></tr>
+<tr class="memdesc:gad298e25a8f8ecc4dc2d7b402aee243ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid interlace modes.  <a href="group__display.html#gad298e25a8f8ecc4dc2d7b402aee243ed">More...</a><br /></td></tr>
+<tr class="separator:gad298e25a8f8ecc4dc2d7b402aee243ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae2079fcb0e8b0f846f002f25d0c73ffb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__display.html#gae2079fcb0e8b0f846f002f25d0c73ffb">bitdepth_t</a> { <a class="el" href="group__display.html#ggae2079fcb0e8b0f846f002f25d0c73ffbabf331dc6d78bf9d2fb2b893a365f01d5">DEPTH_16_BPP</a>
 , <a class="el" href="group__display.html#ggae2079fcb0e8b0f846f002f25d0c73ffba4a6b7a72647d1f86f2215daf4d177e29">DEPTH_32_BPP</a>
  }</td></tr>
@@ -151,31 +157,34 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>display_get_bitde
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>display_get_num_buffers</b> (void)</td></tr>
 <tr class="memdesc:ga40b2efafdb24b9cc7894c64fb12c449a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently configured number of buffers. <br /></td></tr>
 <tr class="separator:ga40b2efafdb24b9cc7894c64fb12c449a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ae78db1ce043c1ea4289ccd474b68f4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__display.html#ga7ae78db1ce043c1ea4289ccd474b68f4">display_get_fps</a> (void)</td></tr>
+<tr class="memdesc:ga7ae78db1ce043c1ea4289ccd474b68f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current number of frames per second being rendered.  <a href="group__display.html#ga7ae78db1ce043c1ea4289ccd474b68f4">More...</a><br /></td></tr>
+<tr class="separator:ga7ae78db1ce043c1ea4289ccd474b68f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga07db7f2d93fc50650dbd0825d8ca1d9c"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_256x240</b> = {256, 240, false}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_256x240</b> = {256, 240, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaab4a98924c7e8cbcb5f954e9a252175c">INTERLACE_OFF</a>}</td></tr>
 <tr class="memdesc:ga07db7f2d93fc50650dbd0825d8ca1d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">256x240 mode <br /></td></tr>
 <tr class="separator:ga07db7f2d93fc50650dbd0825d8ca1d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa5d59348bf36dd5362d2842523260cd5"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_320x240</b> = {320, 240, false}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_320x240</b> = {320, 240, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaab4a98924c7e8cbcb5f954e9a252175c">INTERLACE_OFF</a>}</td></tr>
 <tr class="memdesc:gaa5d59348bf36dd5362d2842523260cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">320x240 mode <br /></td></tr>
 <tr class="separator:gaa5d59348bf36dd5362d2842523260cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga857734e6f5ff0b0e01682e5a1392f92e"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_512x240</b> = {512, 240, false}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_512x240</b> = {512, 240, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaab4a98924c7e8cbcb5f954e9a252175c">INTERLACE_OFF</a>}</td></tr>
 <tr class="memdesc:ga857734e6f5ff0b0e01682e5a1392f92e"><td class="mdescLeft">&#160;</td><td class="mdescRight">512x240 mode, high-res progressive <br /></td></tr>
 <tr class="separator:ga857734e6f5ff0b0e01682e5a1392f92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga31a634515e48da51ba0f31b39b97b967"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_640x240</b> = {640, 240, false}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_640x240</b> = {640, 240, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaab4a98924c7e8cbcb5f954e9a252175c">INTERLACE_OFF</a>}</td></tr>
 <tr class="memdesc:ga31a634515e48da51ba0f31b39b97b967"><td class="mdescLeft">&#160;</td><td class="mdescRight">640x240 mode, high-res progressive <br /></td></tr>
 <tr class="separator:ga31a634515e48da51ba0f31b39b97b967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae36478fb66eb52d1af313f0865919a3b"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_512x480</b> = {512, 480, true}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_512x480</b> = {512, 480, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaa60f8b24c561369b9d727a5cec9b4c34">INTERLACE_HALF</a>}</td></tr>
 <tr class="memdesc:gae36478fb66eb52d1af313f0865919a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">512x480 mode, interlaced <br /></td></tr>
 <tr class="separator:gae36478fb66eb52d1af313f0865919a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3075e476b763f6b33fa88d2759f7276b"><td class="memItemLeft" align="right" valign="top">
-const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_640x480</b> = {640, 480, true}</td></tr>
+const <a class="el" href="group__display.html#structresolution__t">resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RESOLUTION_640x480</b> = {640, 480, <a class="el" href="group__display.html#ggad298e25a8f8ecc4dc2d7b402aee243edaa60f8b24c561369b9d727a5cec9b4c34">INTERLACE_HALF</a>}</td></tr>
 <tr class="memdesc:ga3075e476b763f6b33fa88d2759f7276b"><td class="mdescLeft">&#160;</td><td class="mdescRight">640x480 mode, interlaced <br /></td></tr>
 <tr class="separator:ga3075e476b763f6b33fa88d2759f7276b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -184,7 +193,7 @@ const <a class="el" href="group__display.html#structresolution__t">resolution_t<
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 18 2024 05:42:15 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed May 8 2024 04:25:38 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

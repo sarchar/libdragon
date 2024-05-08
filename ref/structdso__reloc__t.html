@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libdragon: sprite_ext_t.__unnamed7__ Struct Reference</title>
+<title>libdragon: dso_reloc_t Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,58 +64,68 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">sprite_ext_t.__unnamed7__ Struct Reference</div></div>
+  <div class="headertitle"><div class="title">dso_reloc_t Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>DSO relocation.  
+ <a href="structdso__reloc__t.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dso__format_8h_source.html">dso_format.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a4e5868d676cb634aa75b125a0f741abf"><td class="memItemLeft" align="right" valign="top"><a id="a4e5868d676cb634aa75b125a0f741abf" name="a4e5868d676cb634aa75b125a0f741abf"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b></td></tr>
-<tr class="memdesc:a4e5868d676cb634aa75b125a0f741abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic Flags for the sprite. <br /></td></tr>
-<tr class="separator:a4e5868d676cb634aa75b125a0f741abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70cdb878a204fecf91c7dd1af312421"><td class="memItemLeft" align="right" valign="top"><a id="ab70cdb878a204fecf91c7dd1af312421" name="ab70cdb878a204fecf91c7dd1af312421"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>padding</b></td></tr>
-<tr class="memdesc:ab70cdb878a204fecf91c7dd1af312421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Padding. <br /></td></tr>
-<tr class="separator:ab70cdb878a204fecf91c7dd1af312421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77bfab1b96dc40366e65f60623e380f7"><td class="memItemLeft" align="right" valign="top"><a id="a77bfab1b96dc40366e65f60623e380f7" name="a77bfab1b96dc40366e65f60623e380f7"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b></td></tr>
+<tr class="memdesc:a77bfab1b96dc40366e65f60623e380f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program-relative offset of relocation target. <br /></td></tr>
+<tr class="separator:a77bfab1b96dc40366e65f60623e380f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c13dd13b665b4abe3599cb08f8cbc4a"><td class="memItemLeft" align="right" valign="top"><a id="a8c13dd13b665b4abe3599cb08f8cbc4a" name="a8c13dd13b665b4abe3599cb08f8cbc4a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>info</b></td></tr>
+<tr class="memdesc:a8c13dd13b665b4abe3599cb08f8cbc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Top 8 bits: type; lowest 24 bits: symbol index. <br /></td></tr>
+<tr class="separator:a8c13dd13b665b4abe3599cb08f8cbc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
-<a id="a4e5868d676cb634aa75b125a0f741abf" name="a4e5868d676cb634aa75b125a0f741abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e5868d676cb634aa75b125a0f741abf">&#9670;&nbsp;</a></span>flags</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >DSO relocation. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a77bfab1b96dc40366e65f60623e380f7" name="a77bfab1b96dc40366e65f60623e380f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77bfab1b96dc40366e65f60623e380f7">&#9670;&nbsp;</a></span>offset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"></td>
+          <td class="memname">uint32_t dso_reloc_t::offset</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generic Flags for the sprite. </p>
+<p>Program-relative offset of relocation target. </p>
 
 </div>
 </div>
-<a id="ab70cdb878a204fecf91c7dd1af312421" name="ab70cdb878a204fecf91c7dd1af312421"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab70cdb878a204fecf91c7dd1af312421">&#9670;&nbsp;</a></span>padding</h2>
+<a id="a8c13dd13b665b4abe3599cb08f8cbc4a" name="a8c13dd13b665b4abe3599cb08f8cbc4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c13dd13b665b4abe3599cb08f8cbc4a">&#9670;&nbsp;</a></span>info</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"></td>
+          <td class="memname">uint32_t dso_reloc_t::info</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Padding. </p>
+<p>Top 8 bits: type; lowest 24 bits: symbol index. </p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following files:</div><!-- contents -->
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="dso__format_8h_source.html">dso_format.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 18 2024 05:42:16 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed May 8 2024 04:25:39 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

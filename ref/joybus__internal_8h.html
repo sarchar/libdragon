@@ -67,8 +67,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">joybus_internal.h File Reference<div class="ingroups"><a class="el" href="group__libdragon.html">libdragon</a> &raquo; <a class="el" href="group__lowlevel.html">Low Level Hardware Interfaces</a> &raquo; <a class="el" href="group__joybus.html">Joybus Subsystem</a></div></div></div>
+  <div class="headertitle"><div class="title">joybus_internal.h File Reference<div class="ingroups"><a class="el" href="group__libdragon.html">libdragon</a> &raquo; <a class="el" href="group__peripherals.html">Peripherals subsystem</a> &raquo; <a class="el" href="group__joybus.html">Joybus Subsystem</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -77,18 +78,25 @@ $(function() {
 
 <p><a href="joybus__internal_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaaf2e487c05f4f27e3b36af3c54ff66c1"><td class="memItemLeft" align="right" valign="top">
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>joybus_callback_t</b>) (uint64_t *out_dwords, void *ctx)</td></tr>
+<tr class="memdesc:gaaf2e487c05f4f27e3b36af3c54ff66c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function signature for <a class="el" href="group__joybus.html#ga244b4723690e3c15da23bdbfda2cb7d1" title="Execute an asynchronous joybus message.">joybus_exec_async</a>. <br /></td></tr>
+<tr class="separator:gaaf2e487c05f4f27e3b36af3c54ff66c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga67a0b9a8881c8ca94d35be1db9e6030f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__joybus.html#ga67a0b9a8881c8ca94d35be1db9e6030f">joybus_exec_async</a> (const void *input, void(*callback)(uint64_t *output, void *ctx), void *ctx)</td></tr>
-<tr class="memdesc:ga67a0b9a8881c8ca94d35be1db9e6030f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute an asynchronous joybus message.  <a href="group__joybus.html#ga67a0b9a8881c8ca94d35be1db9e6030f">More...</a><br /></td></tr>
-<tr class="separator:ga67a0b9a8881c8ca94d35be1db9e6030f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga244b4723690e3c15da23bdbfda2cb7d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__joybus.html#ga244b4723690e3c15da23bdbfda2cb7d1">joybus_exec_async</a> (const void *input, <a class="el" href="group__joybus.html#gaaf2e487c05f4f27e3b36af3c54ff66c1">joybus_callback_t</a> callback, void *ctx)</td></tr>
+<tr class="memdesc:ga244b4723690e3c15da23bdbfda2cb7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute an asynchronous joybus message.  <a href="group__joybus.html#ga244b4723690e3c15da23bdbfda2cb7d1">More...</a><br /></td></tr>
+<tr class="separator:ga244b4723690e3c15da23bdbfda2cb7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Joybus internal API. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 18 2024 05:42:15 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed May 8 2024 04:25:39 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

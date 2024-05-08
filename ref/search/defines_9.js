@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['pi_5fcart_5faddr_0',['PI_CART_ADDR',['../dma_8h.html#a6cd13d43fe8799f8d51a61c8126ef2fc',1,'dma.h']]],
-  ['pi_5fdram_5faddr_1',['PI_DRAM_ADDR',['../dma_8h.html#aa18917e3e33e3a61f7ce5632e8cc15eb',1,'dma.h']]],
-  ['pi_5frd_5flen_2',['PI_RD_LEN',['../dma_8h.html#a9b7271ee52d161475477be5f0642ce47',1,'dma.h']]],
-  ['pi_5fstatus_3',['PI_STATUS',['../dma_8h.html#a8e1a75ccdd135238f74249425a242ae5',1,'dma.h']]],
-  ['pi_5fwr_5flen_4',['PI_WR_LEN',['../dma_8h.html#a454492300a2a5a3e2ba79fbd82c04944',1,'dma.h']]]
+  ['max_5fevents_0',['MAX_EVENTS',['../mixer_8c.html#ae42954bb8545d24e3e9dcde5920c9a0b',1,'mixer.c']]],
+  ['max_5ffat_5ffiles_1',['MAX_FAT_FILES',['../debug_8c.html#aa96bc6bb5bf359ae13b78e7ff9a3527e',1,'debug.c']]],
+  ['mips_5fop_5faddiu_5fsp_2',['MIPS_OP_ADDIU_SP',['../backtrace_8c.html#ac8bc4759a4b6d337210c9844acd305b1',1,'backtrace.c']]],
+  ['mips_5fop_5fdaddiu_5fsp_3',['MIPS_OP_DADDIU_SP',['../backtrace_8c.html#a3c2b2d8042b4eae33eb6987ed48ebeec',1,'backtrace.c']]],
+  ['mips_5fop_5fjr_5fra_4',['MIPS_OP_JR_RA',['../backtrace_8c.html#abaa0fd6d8e5c9b73484fa5defe0cb641',1,'backtrace.c']]],
+  ['mips_5fop_5flui_5fgp_5',['MIPS_OP_LUI_GP',['../backtrace_8c.html#a0100e60bd74d46bff68a649be695bfb4',1,'backtrace.c']]],
+  ['mips_5fop_5fmove_5ffp_5fsp_6',['MIPS_OP_MOVE_FP_SP',['../backtrace_8c.html#af4b9dc08468b92535beeba8738812d2a',1,'backtrace.c']]],
+  ['mips_5fop_5fnop_7',['MIPS_OP_NOP',['../backtrace_8c.html#ab1f9a5c825a583b912c50683a7927d64',1,'backtrace.c']]],
+  ['mips_5fop_5fsd_5ffp_5fsp_8',['MIPS_OP_SD_FP_SP',['../backtrace_8c.html#a4005db26c4e8876c14094f0687932506',1,'backtrace.c']]],
+  ['mips_5fop_5fsd_5fra_5fsp_9',['MIPS_OP_SD_RA_SP',['../backtrace_8c.html#a91f4956597d8fae1c482452d175d72a1',1,'backtrace.c']]],
+  ['mirror_5fnone_10',['MIRROR_NONE',['../rdpq__tex_8h.html#a10442b231d256560bd6947ee0c7e9f8b',1,'rdpq_tex.h']]],
+  ['mirror_5frepeat_11',['MIRROR_REPEAT',['../rdpq__tex_8h.html#a79e89991373c01e9cf5d7597bbdc5cd6',1,'rdpq_tex.h']]],
+  ['mixer_5ffx15_12',['MIXER_FX15',['../mixer_8c.html#ade5785806d49411387136c246cd40b6a',1,'mixer.c']]],
+  ['mixer_5ffx15_5ffrac_13',['MIXER_FX15_FRAC',['../mixer_8c.html#acb9a569b8c2be3ada1a04652f16bc526',1,'mixer.c']]],
+  ['mixer_5ffx16_14',['MIXER_FX16',['../mixer_8c.html#ab9d424238a4f69e3c75030fffdb3d7fe',1,'mixer.c']]],
+  ['mixer_5ffx16_5ffrac_15',['MIXER_FX16_FRAC',['../mixer_8c.html#a4497109d72b2f0afe429b875b16a4d62',1,'mixer.c']]],
+  ['mixer_5ffx64_16',['MIXER_FX64',['../mixer_8c.html#acad443b9fce37d833c4682de4af599c4',1,'mixer.c']]],
+  ['mixer_5ffx64_5ffrac_17',['MIXER_FX64_FRAC',['../mixer_8c.html#a2ea77e91bbb1541f75bd80cf3ccd202c',1,'mixer.c']]],
+  ['mixer_5floop_5foverread_18',['MIXER_LOOP_OVERREAD',['../mixer_8h.html#a68ffdd651925d1fa7dc533602c508fc6',1,'mixer.h']]],
+  ['mixer_5fmax_5fchannels_19',['MIXER_MAX_CHANNELS',['../mixer_8h.html#a8c4e507c0d1930fd5bd9a9d5f5ca3b13',1,'mixer.h']]],
+  ['mixer_5fpoll_5fper_5fsecond_20',['MIXER_POLL_PER_SECOND',['../mixer_8c.html#acf679d48fd22fa095552abc65a72b198',1,'mixer.c']]],
+  ['mixer_5fstate_5fsize_21',['MIXER_STATE_SIZE',['../mixer_8c.html#a5df3bed5fd6578afbe01235d44993b18',1,'mixer.c']]],
+  ['mixer_5ftrace_22',['MIXER_TRACE',['../mixer_8c.html#a51055c8e74be85f62c35632ff82e869f',1,'MIXER_TRACE():&#160;mixer.c'],['../samplebuffer_8c.html#a51055c8e74be85f62c35632ff82e869f',1,'MIXER_TRACE():&#160;samplebuffer.c']]]
 ];

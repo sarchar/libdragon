@@ -1,24 +1,7 @@
 var searchData=
 [
-  ['max_5fevents_0',['MAX_EVENTS',['../mixer_8c.html#ae42954bb8545d24e3e9dcde5920c9a0b',1,'mixer.c']]],
-  ['max_5ffat_5ffiles_1',['MAX_FAT_FILES',['../debug_8c.html#aa96bc6bb5bf359ae13b78e7ff9a3527e',1,'debug.c']]],
-  ['mips_5fop_5faddiu_5fsp_2',['MIPS_OP_ADDIU_SP',['../backtrace_8c.html#ac8bc4759a4b6d337210c9844acd305b1',1,'backtrace.c']]],
-  ['mips_5fop_5fdaddiu_5fsp_3',['MIPS_OP_DADDIU_SP',['../backtrace_8c.html#a3c2b2d8042b4eae33eb6987ed48ebeec',1,'backtrace.c']]],
-  ['mips_5fop_5fjr_5fra_4',['MIPS_OP_JR_RA',['../backtrace_8c.html#abaa0fd6d8e5c9b73484fa5defe0cb641',1,'backtrace.c']]],
-  ['mips_5fop_5flui_5fgp_5',['MIPS_OP_LUI_GP',['../backtrace_8c.html#a0100e60bd74d46bff68a649be695bfb4',1,'backtrace.c']]],
-  ['mips_5fop_5fmove_5ffp_5fsp_6',['MIPS_OP_MOVE_FP_SP',['../backtrace_8c.html#af4b9dc08468b92535beeba8738812d2a',1,'backtrace.c']]],
-  ['mips_5fop_5fnop_7',['MIPS_OP_NOP',['../backtrace_8c.html#ab1f9a5c825a583b912c50683a7927d64',1,'backtrace.c']]],
-  ['mips_5fop_5fsd_5ffp_5fsp_8',['MIPS_OP_SD_FP_SP',['../backtrace_8c.html#a4005db26c4e8876c14094f0687932506',1,'backtrace.c']]],
-  ['mips_5fop_5fsd_5fra_5fsp_9',['MIPS_OP_SD_RA_SP',['../backtrace_8c.html#a91f4956597d8fae1c482452d175d72a1',1,'backtrace.c']]],
-  ['mixer_5ffx15_10',['MIXER_FX15',['../mixer_8c.html#ade5785806d49411387136c246cd40b6a',1,'mixer.c']]],
-  ['mixer_5ffx15_5ffrac_11',['MIXER_FX15_FRAC',['../mixer_8c.html#acb9a569b8c2be3ada1a04652f16bc526',1,'mixer.c']]],
-  ['mixer_5ffx16_12',['MIXER_FX16',['../mixer_8c.html#ab9d424238a4f69e3c75030fffdb3d7fe',1,'mixer.c']]],
-  ['mixer_5ffx16_5ffrac_13',['MIXER_FX16_FRAC',['../mixer_8c.html#a4497109d72b2f0afe429b875b16a4d62',1,'mixer.c']]],
-  ['mixer_5ffx64_14',['MIXER_FX64',['../mixer_8c.html#acad443b9fce37d833c4682de4af599c4',1,'mixer.c']]],
-  ['mixer_5ffx64_5ffrac_15',['MIXER_FX64_FRAC',['../mixer_8c.html#a2ea77e91bbb1541f75bd80cf3ccd202c',1,'mixer.c']]],
-  ['mixer_5floop_5foverread_16',['MIXER_LOOP_OVERREAD',['../mixer_8h.html#a68ffdd651925d1fa7dc533602c508fc6',1,'mixer.h']]],
-  ['mixer_5fmax_5fchannels_17',['MIXER_MAX_CHANNELS',['../mixer_8h.html#a8c4e507c0d1930fd5bd9a9d5f5ca3b13',1,'mixer.h']]],
-  ['mixer_5fpoll_5fper_5fsecond_18',['MIXER_POLL_PER_SECOND',['../mixer_8c.html#acf679d48fd22fa095552abc65a72b198',1,'mixer.c']]],
-  ['mixer_5fstate_5fsize_19',['MIXER_STATE_SIZE',['../mixer_8c.html#a5df3bed5fd6578afbe01235d44993b18',1,'mixer.c']]],
-  ['mixer_5ftrace_20',['MIXER_TRACE',['../mixer_8c.html#a51055c8e74be85f62c35632ff82e869f',1,'MIXER_TRACE():&#160;mixer.c'],['../samplebuffer_8c.html#a51055c8e74be85f62c35632ff82e869f',1,'MIXER_TRACE():&#160;samplebuffer.c']]]
+  ['intdebugf_0',['intdebugf',['../rdpq__debug_8c.html#a5ae469a80be89e920cfbeca1684da059',1,'rdpq_debug.c']]],
+  ['isviewer_5fbuffer_1',['ISVIEWER_BUFFER',['../debug_8c.html#ac8ee018ab83421d4023d62dbf101a3a7',1,'debug.c']]],
+  ['isviewer_5fbuffer_5flen_2',['ISVIEWER_BUFFER_LEN',['../debug_8c.html#a27745d9b9c5d96c55b87b67b1aa998d6',1,'debug.c']]],
+  ['isviewer_5fwrite_5flen_3',['ISVIEWER_WRITE_LEN',['../debug_8c.html#afc19541124f4e8e53c6deb3367030740',1,'debug.c']]]
 ];

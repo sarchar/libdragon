@@ -75,14 +75,18 @@ $(function() {
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__joybus.html#ga67a0b9a8881c8ca94d35be1db9e6030f">joybus_exec_async</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> * input, <span class="keywordtype">void</span> (*callback)(uint64_t *output, <span class="keywordtype">void</span> *ctx), <span class="keywordtype">void</span> *ctx);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="agroup__joybus_html_ga67a0b9a8881c8ca94d35be1db9e6030f"><div class="ttname"><a href="group__joybus.html#ga67a0b9a8881c8ca94d35be1db9e6030f">joybus_exec_async</a></div><div class="ttdeci">void joybus_exec_async(const void *input, void(*callback)(uint64_t *output, void *ctx), void *ctx)</div><div class="ttdoc">Execute an asynchronous joybus message.</div><div class="ttdef"><b>Definition:</b> joybus.c:265</div></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group__joybus.html#gaaf2e487c05f4f27e3b36af3c54ff66c1">   18</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="group__joybus.html#gaaf2e487c05f4f27e3b36af3c54ff66c1">joybus_callback_t</a>)(uint64_t *out_dwords, <span class="keywordtype">void</span> *ctx);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="group__joybus.html#ga244b4723690e3c15da23bdbfda2cb7d1">joybus_exec_async</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> * input, <a class="code hl_typedef" href="group__joybus.html#gaaf2e487c05f4f27e3b36af3c54ff66c1">joybus_callback_t</a> callback, <span class="keywordtype">void</span> *ctx);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> <span class="comment">/* joybus */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agroup__joybus_html_ga244b4723690e3c15da23bdbfda2cb7d1"><div class="ttname"><a href="group__joybus.html#ga244b4723690e3c15da23bdbfda2cb7d1">joybus_exec_async</a></div><div class="ttdeci">void joybus_exec_async(const void *input, joybus_callback_t callback, void *ctx)</div><div class="ttdoc">Execute an asynchronous joybus message.</div><div class="ttdef"><b>Definition:</b> joybus.c:266</div></div>
+<div class="ttc" id="agroup__joybus_html_gaaf2e487c05f4f27e3b36af3c54ff66c1"><div class="ttname"><a href="group__joybus.html#gaaf2e487c05f4f27e3b36af3c54ff66c1">joybus_callback_t</a></div><div class="ttdeci">void(* joybus_callback_t)(uint64_t *out_dwords, void *ctx)</div><div class="ttdoc">Callback function signature for joybus_exec_async.</div><div class="ttdef"><b>Definition:</b> joybus_internal.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 18 2024 05:42:15 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed May 8 2024 04:25:38 for libdragon by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

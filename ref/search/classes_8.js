@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['header_5ft_0',['header_t',['../rompak_8c.html#structheader__t',1,'']]]
+  ['gameboy_5fcartridge_5fheader_0',['gameboy_cartridge_header',['../tpak_8h.html#structgameboy__cartridge__header',1,'']]],
+  ['gameboy_5fcartridge_5fheader_2e_5f_5funnamed61_5f_5f_1',['gameboy_cartridge_header.__unnamed61__',['../tpak_8h.html#uniongameboy__cartridge__header_8____unnamed61____',1,'']]],
+  ['glyph_5ft_2',['glyph_t',['../structglyph__t.html',1,'']]]
 ];
